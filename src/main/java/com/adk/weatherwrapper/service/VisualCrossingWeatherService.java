@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class VisualCrossingWeatherService implements IWeatherService {
 	
-	@Autowired
-	RedisCacheManager cacheManager;
+//	@Autowired
+//	RedisCacheManager cacheManager;
 	
 	{
 		

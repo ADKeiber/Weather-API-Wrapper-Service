@@ -102,7 +102,28 @@
 		    <artifactId>spring-data-redis</artifactId>
 		    <version>3.4.0</version>
 		</dependency>
-
+		<dependency>
+		    <groupId>io.lettuce</groupId>
+		    <artifactId>lettuce-core</artifactId>
+			<version>6.4.1.RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>redis.clients</groupId>
+		    <artifactId>jedis</artifactId>
+		    <version>5.2.0</version>
+		  </dependency>
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20240303</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.11.0</version>
+</dependency>
 
 
 		<dependency>
