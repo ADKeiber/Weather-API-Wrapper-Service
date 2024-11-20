@@ -41,7 +41,10 @@ public class WeatherController {
 		}
 		Gson gson = new Gson();
 		System.out.println(userBucketPath);
-		System.out.println(redisTemplate.opsForHash().values("Test"));
-		return new ResponseEntity<>(gson.toJson(redisTemplate.opsForHash().values("Test")), HttpStatus.OK);
+		System.out.println(redisTemplate.opsForHash().values("Test").get(0).toString().replace('\\', ' '));
+		String formatted = gson.toJson(redisTemplate.opsForHash().values("Test").get(0).toString());
+		formatted = formatted.replace("\"", "");
+		formatted = formatted.replace("\\", "\"");
+		return new ResponseEntity<>(formatted, HttpStatus.OK);
 	}
 }
