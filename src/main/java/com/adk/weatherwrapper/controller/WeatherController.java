@@ -47,4 +47,10 @@ public class WeatherController {
 		formatted = formatted.replace("\\", "\"");
 		return new ResponseEntity<>(formatted, HttpStatus.OK);
 	}
+	
+	@GetMapping("/today/{city}/{state}")
+	public ResponseEntity<Object> getTodayWeatherForLocation(@PathVariable String city, @PathVariable String state){
+		
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 }
