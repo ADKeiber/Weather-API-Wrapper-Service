@@ -1,16 +1,13 @@
-package com.adk.weatherwrapper.util;
+package com.adk.weatherwrapper.model;
 
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Value;
 
-import com.adk.weatherwrapper.model.OutputSection;
-import com.adk.weatherwrapper.model.UnitGroup;
-
 import lombok.Data;
 
 @Data
-public class VisualCrossingAPICallBuilder {
+public class ApiCallBuilder {
 	
 	@Value("${api.url}")
 	private String baseURL;
@@ -27,7 +24,7 @@ public class VisualCrossingAPICallBuilder {
 	 * 
 	 * @return
 	 */
-	public String buildURL() {
+	public String buildVisualCrossingURL() {
 		
 		StringBuilder sb = new StringBuilder();
 		
