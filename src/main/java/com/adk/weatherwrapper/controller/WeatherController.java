@@ -2,22 +2,21 @@ package com.adk.weatherwrapper.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.redis.core.ListOperations;
-import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.google.gson.Gson;
 
-import jakarta.annotation.Resource;
-
+/**
+ * Program Goals/Limitations:
+ * Can edit location, data range, units, 
+ * daily, current, or hourly
+ */
 @RestController
 public class WeatherController {
 	private static int counter = 1;
@@ -25,8 +24,8 @@ public class WeatherController {
 	@Value("${api.key}")
 	private String userBucketPath;
 	
-	  @Autowired
-	  private RedisTemplate redisTemplate;
+	@Autowired
+	private RedisTemplate redisTemplate;
 	
 	@GetMapping("/test/{testValue}")
 	public ResponseEntity<Object> test(@PathVariable String testValue) {
