@@ -10,13 +10,15 @@ Notable things about the application: <br>
 Spring Boot <br>
 Java 17 <br>
 OpenAPI Documentation <br>
-third-party api integration <br>
+third-party API integration <br>
 Redis Caching <br>
 
 
 **REQUIREMENTS TO RUN LOCALLY** <br>
 Java 17 installed <br>
-Redis installed locally <br>
+Redis installed locally <be>
+info.yml file needs to be updated to contain a user's key. For obvious security reasons I used a different file. You could create an account and get your key here. 
+https://www.visualcrossing.com/weather-api
 
 Screenshot of Swagger OpenAPI documentation <br>
 Can be accessed through http://localhost:8081/swagger-ui/index.html#/ when the application is pulled down and run locally
