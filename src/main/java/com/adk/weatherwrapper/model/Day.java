@@ -1,24 +1,21 @@
 package com.adk.weatherwrapper.model;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.Gson;
-
 import lombok.Data;
 
+/**
+ * DTO class that holds the weather information for a day
+ */
 @Data
 public class Day implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -3026446132044188445L;
 
 	@JsonProperty("datetime")
-	private String datetime; //"2024-11-22"
+	private String datetime;
 	
 	@JsonProperty("datetimeEpoch")
 	private int datetimeEpoch;

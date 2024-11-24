@@ -8,12 +8,12 @@ import com.google.gson.Gson;
 
 import lombok.Data;
 
+/**
+ * DTO class that holds the weather information for a particular hour
+ */
 @Data
 public class Hour implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 8486186296153112284L;
 
 	@JsonProperty("datetime")

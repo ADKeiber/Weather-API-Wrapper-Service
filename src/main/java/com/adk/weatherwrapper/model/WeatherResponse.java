@@ -10,13 +10,13 @@ import com.google.gson.Gson;
 
 import lombok.Data;
 
+/**
+ * DTO class that holds the entire weather response 
+ */
 @Data
 @Component
 public class WeatherResponse implements Serializable{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@JsonProperty("resolvedAddress")
