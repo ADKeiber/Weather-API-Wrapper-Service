@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "9f371e41-ac84-40c2-a4d3-4fe62f9d3477",
+		"name": "Weather Wrapper",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16694008"
+	},
+	"item": [
+		{
+			"name": "Get Current",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Validate that the response code should be 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/current/Lima/OH/2024-11-24/2024-11-24",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"current",
+						"Lima",
+						"OH",
+						"2024-11-24",
+						"2024-11-24"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Daily",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Validate that the response code should be 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/daily/Lima/OH/2024-11-24/2024-11-24",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"daily",
+						"Lima",
+						"OH",
+						"2024-11-24",
+						"2024-11-24"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Hourly",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Validate that the response code should be 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/hourly/Lima/OH/2024-11-23/2024-11-23",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"hourly",
+						"Lima",
+						"OH",
+						"2024-11-23",
+						"2024-11-23"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
