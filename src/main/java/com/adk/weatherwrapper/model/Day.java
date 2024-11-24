@@ -1,38 +1,45 @@
 package com.adk.weatherwrapper.model;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.Gson;
 
 import lombok.Data;
 
 @Data
-public class Day {
+public class Day implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3026446132044188445L;
+
 	@JsonProperty("datetime")
-	private Date dateTime; //"2024-11-22"
+	private String datetime; //"2024-11-22"
 	
 	@JsonProperty("datetimeEpoch")
-	private int dateTimeEpoch;
+	private int datetimeEpoch;
 	
 	@JsonProperty("tempmax")
-	private double tempMax;
+	private double tempmax;
 	
 	@JsonProperty("tempmin")
-	private double tempMin;
+	private double tempmin;
 	
 	@JsonProperty("temp")
 	private double temp;
 	
 	@JsonProperty("feelslikemax")
-	private double feelsLikeMax;
+	private double feelslikemax;
 	
 	@JsonProperty("feelslikemin")
-	private double feelsLikeMin;
+	private double feelslikemin;
 	
 	@JsonProperty("feelslike")
-	private double feelsLike;
+	private double feelslike;
 	
 	@JsonProperty("dew")
 	private double dew;
@@ -43,56 +50,56 @@ public class Day {
 	@JsonProperty("precip")
 	private double precip;
 	
-	@JsonProperty("precipProb")
+	@JsonProperty("precipprob")
 	private double precipprob;
 	
 	@JsonProperty("precipcover")
-	private double precipCover;
+	private double precipcover;
 	
 	@JsonProperty("preciptype")
-	private List<String> precipType;
+	private List<String> preciptype;
 	
 	@JsonProperty("now")
 	private double now;
 	
 	@JsonProperty("windgust")
-	private double windGust;
+	private double windgust;
 	
 	@JsonProperty("windspeed")
-	private double windSpeed;
+	private double windspeed;
 	
 	@JsonProperty("winddir")
-	private double windDir;
+	private double winddir;
 	
 	@JsonProperty("pressure")
 	private double pressure;
 	
 	@JsonProperty("cloudcover")
-	private double cloudCover;
+	private double cloudcover;
 	
 	@JsonProperty("visibility")
 	private double visibility;
 	
 	@JsonProperty("solarradiation")
-	private double solarRadiation;
+	private double solarradiation;
 	
 	@JsonProperty("solarenergy")
-	private double solarEnergy;
+	private double solarenergy;
 	
 	@JsonProperty("uvindex")
-	private double uvIndex;
+	private double uvindex;
 	
 	@JsonProperty("severerisk")
-	private double severeRisk;
+	private double severerisk;
 	
 	@JsonProperty("sunrise")
-	private Date sunrise; // "07:32:10"
+	private String sunrise;
 	
 	@JsonProperty("sunsetEpoch")
-	private int sunsetEpoch;
+	private int sunsetepoch;
 	
 	@JsonProperty("moonphase")
-	private double moonPhase;
+	private double moonphase;
 	
 	@JsonProperty("conditions")
 	private String conditions;
@@ -105,4 +112,7 @@ public class Day {
 	
 	@JsonProperty("hours")
 	private List<Hour> hours;
+	
+	@Override
+	public String toString() {return new Gson().toJson(this);}
 }

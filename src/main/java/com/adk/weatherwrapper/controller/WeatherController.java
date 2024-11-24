@@ -7,11 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.adk.weatherwrapper.model.ApiCallBuilder;
+import com.adk.weatherwrapper.model.OutputSection;
+import com.adk.weatherwrapper.model.UnitGroup;
 import com.adk.weatherwrapper.service.VisualCrossingWeatherService;
+import com.adk.weatherwrapper.util.ApiCallBuilderUtil;
 import com.google.gson.Gson;
 
 /**
@@ -25,40 +28,18 @@ public class WeatherController {
 	@Autowired
 	private VisualCrossingWeatherService visualCrossingWeatherService;
 
-	@GetMapping("/test/{testValue}")
-	public ResponseEntity<Object> test(@PathVariable String testValue) {
-//		final String uri = String.format("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/London,UK?key=%s", userBucketPath);
-//
-//	    RestTemplate restTemplate = new RestTemplate();
-//	    String result = restTemplate.getForObject(uri, String.class);
-//		try {
-//			redisTemplate.opsForHash().put("Test", "Value", result);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		Gson gson = new Gson();
-//		System.out.println(userBucketPath);
-//		System.out.println(redisTemplate.opsForHash().values("Test").get(0).toString().replace('\\', ' '));
-//		String formatted = gson.toJson(redisTemplate.opsForHash().values("Test").get(0).toString());
-//		formatted = formatted.replace("\"", "");
-//		formatted = formatted.replace("\\", "\"");
-		return new ResponseEntity<>(HttpStatus.OK);
+	@GetMapping("/hourly/{city}/{state}/{startDate}/{endDate}")
+	public ResponseEntity<Object> getHourlyWeather(@PathVariable String city, @PathVariable String state, @PathVariable String startDate, @PathVariable String endDate) throws Exception{
+		return new ResponseEntity<>(visualCrossingWeatherService.setupApiCallInformation(OutputSection.HOURLY, city, state, startDate, endDate), HttpStatus.OK);
 	}
 	
-	@GetMapping("/today/{city}/{state}")
-	public ResponseEntity<Object> getTodayWeatherForLocation(@PathVariable String city, @PathVariable String state){
-		
-		return new ResponseEntity<>(HttpStatus.OK);
+	@GetMapping("/daily/{city}/{state}/{startDate}/{endDate}")
+	public ResponseEntity<Object> getDailyWeather(@PathVariable String city, @PathVariable String state, @PathVariable String startDate, @PathVariable String endDate) throws Exception{
+		return new ResponseEntity<>(visualCrossingWeatherService.setupApiCallInformation(OutputSection.DAILY, city, state, startDate, endDate), HttpStatus.OK);
 	}
 	
-	@GetMapping("/current/{city}/{state}")
-	public ResponseEntity<Object> getCurrentWeatherForLocation(@PathVariable String city, @PathVariable String state){
-		
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
-	
-	@GetMapping("/hourly")
-	public ResponseEntity<Object> getHourlyWeatherForLocation(){
-		return new ResponseEntity<>(visualCrossingWeatherService.buildURL(), HttpStatus.OK);
+	@GetMapping("/current/{city}/{state}/{startDate}/{endDate}")
+	public ResponseEntity<Object> getCurrentWeather(@PathVariable String city, @PathVariable String state, @PathVariable String startDate, @PathVariable String endDate) throws Exception{
+		return new ResponseEntity<>(visualCrossingWeatherService.setupApiCallInformation(OutputSection.CURRENT, city, state, startDate, endDate), HttpStatus.OK);
 	}
 }

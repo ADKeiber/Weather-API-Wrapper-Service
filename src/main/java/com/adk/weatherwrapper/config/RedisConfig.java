@@ -14,6 +14,8 @@ import org.springframework.data.redis.connection.lettuce.LettuceClientConfigurat
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.convert.KeyspaceConfiguration;
+import org.springframework.data.redis.core.convert.KeyspaceConfiguration.KeyspaceSettings;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
@@ -21,21 +23,15 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 public class RedisConfig {
 	
 	@Bean
-	public JedisConnectionFactory jedisConnectionFactory() {
+	public LettuceConnectionFactory  jedisConnectionFactory() {
 		RedisStandaloneConfiguration config = new RedisStandaloneConfiguration("127.0.0.1", 6379);
-		return new JedisConnectionFactory(config);
+		return new LettuceConnectionFactory (config);
 	}
+	
 	@Bean
-	  public RedisTemplate<String, Object> redisTemplate() {
-		RedisTemplate<String, Object> template = new RedisTemplate<>();
-		template.setConnectionFactory(jedisConnectionFactory());
-		template.setKeySerializer(new StringRedisSerializer());
-		template.setHashKeySerializer(new StringRedisSerializer());
-		template.setHashKeySerializer(new JdkSerializationRedisSerializer());
-		template.setValueSerializer(new JdkSerializationRedisSerializer());
-		template.setEnableTransactionSupport(true);
-		template.afterPropertiesSet();
-		
+	StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
+		StringRedisTemplate template = new StringRedisTemplate();
+		template.setConnectionFactory(redisConnectionFactory);
 		return template;
-	  }
+	}
 }

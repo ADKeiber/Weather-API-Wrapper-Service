@@ -1,23 +1,36 @@
 package com.adk.weatherwrapper.model;
 
+import java.io.Serializable;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.Gson;
 
 import lombok.Data;
 
 @Data
-public class WeatherResponse {
+@Component
+public class WeatherResponse implements Serializable{
 	
-	@JsonProperty("datetime")
-	private String resolvedAddress;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@JsonProperty("resolvedAddress")
+	private String resolvedaddress;
 	
-	@JsonProperty("datetime")
+	@JsonProperty("address")
 	private String address;
 	
-	@JsonProperty("datetime")
-	private String timeZone;
+	@JsonProperty("timezone")
+	private String timezone;
 	
-	@JsonProperty("datetime")
+	@JsonProperty("days")
 	private List<Day> days;
+	
+	@Override
+	public String toString() {return new Gson().toJson(this);}
 }

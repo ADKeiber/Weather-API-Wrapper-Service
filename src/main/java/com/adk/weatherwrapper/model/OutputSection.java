@@ -7,7 +7,5 @@ import lombok.Getter;
 @Getter
 public enum OutputSection { 
 	DAILY("days"), HOURLY("hours"), CURRENT("current"); 
-	
 	String urlValue;
-	
 }
