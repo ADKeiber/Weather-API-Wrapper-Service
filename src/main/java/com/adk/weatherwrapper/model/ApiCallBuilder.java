@@ -3,12 +3,15 @@ package com.adk.weatherwrapper.model;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import lombok.Data;
 
 @Data
+@Component
 public class ApiCallBuilder {
-	
+
 	@Value("${api.url}")
 	private String baseURL;
 	@Value("${api.key}")
@@ -19,33 +22,35 @@ public class ApiCallBuilder {
 	private Date startDate;
 	private Date endDate;
 	private OutputSection outputSection = OutputSection.CURRENT;
-	
+
 	/**
 	 * 
 	 * @return
 	 */
 	public String buildVisualCrossingURL() {
-		
+
 		StringBuilder sb = new StringBuilder();
-		
-		sb.append(baseURL + "/");
-		
+
+		sb.append(baseURL);
+
 		sb.append(city + "%2C%20");
-		
+
 		sb.append(stateOrCountry + "/");
-		
+
 		if (endDate == null || startDate == null || endDate.equals(startDate))
 			sb.append("today/");
 		else
 			sb.append(startDate.toString() + "/" + endDate.toString() + "?");
-		
+
 		sb.append("unitGroup=" + unitGroup.toString());
-		
+
 		sb.append("&include=" + outputSection.getUrlValue());
-		
+
 		sb.append("&key=" + apiKey);
+		
+		sb.append("&contentType=json");
 		
 		return sb.toString();
 	}
-	
+
 }

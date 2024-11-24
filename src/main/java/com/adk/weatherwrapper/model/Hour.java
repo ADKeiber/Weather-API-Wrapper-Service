@@ -2,33 +2,80 @@ package com.adk.weatherwrapper.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
 
 @Data
 public class Hour {
 
-	private String datetime;
+	@JsonProperty("datetime")
+	private String dateTime;
+	
+	@JsonProperty("dateTimeEpoch")
 	private int datetimeEpoch;
+	
+	@JsonProperty("temp")
 	private double temp;
-	private double feelslike;
+	
+	@JsonProperty("feelslike")
+	private double feelsLike;
+	
+	@JsonProperty("humidity")
 	private double humidity;
+	
+	@JsonProperty("dew")
 	private double dew;
+	
+	@JsonProperty("precip")
 	private double precip;
-	private double precipprob;
+	
+	@JsonProperty("precipprob")
+	private double precipProb;
+	
+	@JsonProperty("snow")
 	private double snow;
-	private double snowdepth;
-	private List<String> preciptype;
-	private double windgust;
-	private double windspeed;
-	private double winddir;
+	
+	@JsonProperty("snowdepth")
+	private double snowDepth;
+	
+	@JsonProperty("preciptype")
+	private List<String> precipType;
+	
+	@JsonProperty("windgust")
+	private double windGust;
+	
+	@JsonProperty("windspeed")
+	private double windSpeed;
+	
+	@JsonProperty("winddir")
+	private double windDir;
+	
+	@JsonProperty("pressure")
 	private double pressure;
+	
+	@JsonProperty("visibility")
 	private double visibility;
+	
+	@JsonProperty("cloudCover")
 	private double cloudcover;
-	private double solarradiation;
-	private double solarenergy;
-	private double uvindex;
-	private double severerisk;
+	
+	@JsonProperty("solarradiation")
+	private double solarRadiation;
+	
+	@JsonProperty("solarenergy")
+	private double solarEnergy;
+	
+	@JsonProperty("uvindex")
+	private double uvIndex;
+	
+	@JsonProperty("severerisk")
+	private double severeRisk;
+	
+	@JsonProperty("conditions")
 	private String conditions;
+	
+	@JsonProperty("icon")
 	private String icon;
 	
 }

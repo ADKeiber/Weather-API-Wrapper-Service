@@ -3,40 +3,106 @@ package com.adk.weatherwrapper.model;
 import java.sql.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
 
 @Data
 public class Day {
-	private Date datetime; //"2024-11-22"
-	private int datetimeEpoch;
-	private double tempmax;
-	private double tempmin;
+	
+	@JsonProperty("datetime")
+	private Date dateTime; //"2024-11-22"
+	
+	@JsonProperty("datetimeEpoch")
+	private int dateTimeEpoch;
+	
+	@JsonProperty("tempmax")
+	private double tempMax;
+	
+	@JsonProperty("tempmin")
+	private double tempMin;
+	
+	@JsonProperty("temp")
 	private double temp;
-	private double feelslikemax;
-	private double feelslikemin;
-	private double feelslike;
+	
+	@JsonProperty("feelslikemax")
+	private double feelsLikeMax;
+	
+	@JsonProperty("feelslikemin")
+	private double feelsLikeMin;
+	
+	@JsonProperty("feelslike")
+	private double feelsLike;
+	
+	@JsonProperty("dew")
 	private double dew;
+	
+	@JsonProperty("humidity")
 	private double humidity;
+	
+	@JsonProperty("precip")
 	private double precip;
+	
+	@JsonProperty("precipProb")
 	private double precipprob;
-	private double recipcover;
-	private List<String> preciptype;
+	
+	@JsonProperty("precipcover")
+	private double precipCover;
+	
+	@JsonProperty("preciptype")
+	private List<String> precipType;
+	
+	@JsonProperty("now")
 	private double now;
-	private double windgust;
-	private double windspeed;
-	private double winddir;
+	
+	@JsonProperty("windgust")
+	private double windGust;
+	
+	@JsonProperty("windspeed")
+	private double windSpeed;
+	
+	@JsonProperty("winddir")
+	private double windDir;
+	
+	@JsonProperty("pressure")
 	private double pressure;
-	private double cloudcover;
+	
+	@JsonProperty("cloudcover")
+	private double cloudCover;
+	
+	@JsonProperty("visibility")
 	private double visibility;
-	private double solarradiation;
-	private double solarenergy;
-	private double uvindex;
-	private double severerisk;
+	
+	@JsonProperty("solarradiation")
+	private double solarRadiation;
+	
+	@JsonProperty("solarenergy")
+	private double solarEnergy;
+	
+	@JsonProperty("uvindex")
+	private double uvIndex;
+	
+	@JsonProperty("severerisk")
+	private double severeRisk;
+	
+	@JsonProperty("sunrise")
 	private Date sunrise; // "07:32:10"
+	
+	@JsonProperty("sunsetEpoch")
 	private int sunsetEpoch;
-	private double moonphase;
+	
+	@JsonProperty("moonphase")
+	private double moonPhase;
+	
+	@JsonProperty("conditions")
 	private String conditions;
+	
+	@JsonProperty("description")
 	private String description;
+	
+	@JsonProperty("icon")
 	private String icon;
+	
+	@JsonProperty("hours")
 	private List<Hour> hours;
 }

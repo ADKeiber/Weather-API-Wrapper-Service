@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.adk.weatherwrapper.model.ApiCallBuilder;
 import com.adk.weatherwrapper.service.VisualCrossingWeatherService;
 import com.google.gson.Gson;
 
@@ -56,9 +57,8 @@ public class WeatherController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	@GetMapping("/current/{city}/{state}")
-	public ResponseEntity<Object> getHourlyWeatherForLocation(@PathVariable String city, @PathVariable String state){
-		
-		return new ResponseEntity<>(HttpStatus.OK);
+	@GetMapping("/hourly")
+	public ResponseEntity<Object> getHourlyWeatherForLocation(){
+		return new ResponseEntity<>(visualCrossingWeatherService.buildURL(), HttpStatus.OK);
 	}
 }
